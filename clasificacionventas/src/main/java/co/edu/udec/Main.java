@@ -70,7 +70,7 @@ public class Main {
         mostrarVentas(ventas);
 
         // Clasificar por valor descendente
-        servicio.clasificarPorValorDesendente(ventasPorValor);
+        servicio.clasificarPorValorDescendente(ventasPorValor);
 
         System.out.println("\n========== CLASIFICACION POR VALOR DESCENDENTE ==========");
 

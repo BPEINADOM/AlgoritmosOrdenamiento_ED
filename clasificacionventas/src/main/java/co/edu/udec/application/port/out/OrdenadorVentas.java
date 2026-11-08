@@ -4,7 +4,7 @@ import co.edu.udec.domain.model.Venta;
 
 public interface OrdenadorVentas {
 
-    void ordenadorPorValorDesendente(Venta[] ventas);
+    void ordenadorPorValorDescendente(Venta[] ventas);
 
     void ordenarPorFechaAscendente(Venta[] ventas);
 

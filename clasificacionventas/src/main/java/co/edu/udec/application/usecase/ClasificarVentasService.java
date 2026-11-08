@@ -11,8 +11,8 @@ public class ClasificarVentasService {
         this.ordenadorVentas = ordenadorVentas;
     }
 
-    public void clasificarPorValorDesendente(Venta[] ventas) {
-        ordenadorVentas.ordenadorPorValorDesendente(ventas);
+    public void clasificarPorValorDescendente(Venta[] ventas) {
+        ordenadorVentas.ordenadorPorValorDescendente(ventas);
     }
 
     public void clasificarPorFechaAscendente(Venta[] ventas) {
