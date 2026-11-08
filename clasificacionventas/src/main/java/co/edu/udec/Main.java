@@ -3,7 +3,9 @@ package co.edu.udec;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import co.edu.udec.application.usecase.ClasificarVentasService;
 import co.edu.udec.domain.model.Venta;
+import co.edu.udec.infrastructure.algorithm.QuickSortVentas;
 
 public class Main {
     public static void main( String[] args )
@@ -52,5 +54,46 @@ public class Main {
                 new BigDecimal("410000.00")
             ),
         };
+
+        // Crear el ordenador y el servicio
+        QuickSortVentas quickSort = new QuickSortVentas();
+
+        ClasificarVentasService servicio = new ClasificarVentasService(quickSort);
+
+        // Crear copias para cada calificacion
+        Venta[] ventasPorValor = ventas.clone();
+        Venta[] ventasPorFecha = ventas.clone();
+
+        // Mostrar las ventas originales
+        System.out.println("========== VENTAS ORIGINALES ==========");
+        
+        mostrarVentas(ventas);
+
+        // Clasificar por valor descendente
+        servicio.clasificarPorValorDesendente(ventasPorValor);
+
+        System.out.println("\n========== CLASIFICACION POR VALOR DESCENDENTE ==========");
+
+        mostrarVentas(ventasPorValor);
+
+        // Clasificar por fecha ascendente
+        servicio.clasificarPorFechaAscendente(ventasPorFecha);
+
+        System.out.println("\n========== CLASIFICACION POR FECHA ASCENDENTE ==========");
+
+        mostrarVentas(ventasPorFecha);
+
+        // Comprobar que el arreglo original se conserva
+        System.out.println("\n========== COMPROBACION DEL ARREGLO ORIGINAL ==========");
+
+        mostrarVentas(ventas);
     }
+
+    public static void mostrarVentas(Venta[] ventas) {
+            
+        for (Venta venta : ventas) {
+            System.out.println(venta);
+        }
+    }
+    
 }
