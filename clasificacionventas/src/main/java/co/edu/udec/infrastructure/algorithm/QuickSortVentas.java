@@ -8,7 +8,11 @@ import co.edu.udec.domain.model.Venta;
 public class QuickSortVentas implements OrdenadorVentas {
 
     @Override
-    public void ordenadorPorValorDesendente(Venta[] ventas) {
+    public void ordenadorPorValorDescendente(Venta[] ventas) {
+
+        if (ventas == null || ventas.length <= 1) {
+            return;
+        }
 
         Comparator<Venta> comparador = (venta1, venta2) ->
             venta2.getValorTotal().compareTo(venta1.getValorTotal());
@@ -18,6 +22,11 @@ public class QuickSortVentas implements OrdenadorVentas {
 
     @Override
     public void ordenarPorFechaAscendente(Venta[] ventas) {
+
+        if (ventas == null || ventas.length <= 1) {
+            return;
+        }
+        
         Comparator<Venta> comparador = (venta1, venta2) ->
             venta1.getFecha().compareTo(venta2.getFecha());
         
